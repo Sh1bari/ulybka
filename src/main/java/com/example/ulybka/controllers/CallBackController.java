@@ -4,15 +4,18 @@ import com.example.ulybka.entities.CallBack;
 import com.example.ulybka.models.Answer;
 import com.example.ulybka.repo.CallBackRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/callback")
+@RestController
+@RequestMapping("/callback")
 public class CallBackController {
+
+    @GetMapping("/hi")
+    private String hi(){
+        return "hi";
+    }
     @Autowired
     private CallBackRepo callBackRepo;
 
