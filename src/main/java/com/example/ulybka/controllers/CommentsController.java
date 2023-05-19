@@ -44,11 +44,11 @@ public class CommentsController {
     private List<Comments> getForAdmin(){
         return commentsRepo.findAllByNameContainingOrderByDateDesc("");
     }
-    @PostMapping("/publish")
-    private Answer publish(@RequestBody Comments comments){
+    @PostMapping("/publish/{id}")
+    private Answer publish(@PathVariable Integer id){
         Answer answer = new Answer();
         answer.setStatus("done");
-        Optional<Comments> comments1 = commentsRepo.findById(comments.getId());
+        Optional<Comments> comments1 = commentsRepo.findById(id);
         Comments finalComment = comments1.get();
         finalComment.setStatus("published");
         commentsRepo.save(finalComment);

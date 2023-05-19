@@ -31,10 +31,10 @@ public class CallBackController {
         return callBackRepo.findAllByNumberContainingOrderByDateDesc("");
     }
 
-    @PostMapping("/delete")
-    private Answer delete(@RequestBody CallBack callBack){
+    @PostMapping("/delete/{id}")
+    private Answer delete(@PathVariable Integer id){
         Answer answer = new Answer();
-        callBackRepo.deleteCallBack(callBack.getId());
+        callBackRepo.deleteCallBack(id);
         answer.setStatus("done");
         return answer;
     }
