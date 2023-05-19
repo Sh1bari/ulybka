@@ -22,7 +22,6 @@ public class CallBackController {
 
     @PostMapping("/send")
     private void send(@RequestBody CallBack callBack){
-        callBack.setStatus("pending");
         callBackRepo.save(callBack);
     }
 

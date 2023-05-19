@@ -21,6 +21,5 @@ public class CallBack {
 
     private String name;
     private String number;
-    private String status;      //pending, done
     private String date;
 }
