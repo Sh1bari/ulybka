@@ -21,8 +21,9 @@ public class CallBackController {
     private CallBackRepo callBackRepo;
 
     @PostMapping("/send")
-    private void send(@RequestBody CallBack callBack){
+    private Answer send(@RequestBody CallBack callBack){
         callBackRepo.save(callBack);
+        return new Answer("done");
     }
 
     @GetMapping("/get")
