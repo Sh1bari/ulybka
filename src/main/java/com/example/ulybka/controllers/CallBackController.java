@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/callback")
+@CrossOrigin
 public class CallBackController {
 
     @GetMapping("/hi")
