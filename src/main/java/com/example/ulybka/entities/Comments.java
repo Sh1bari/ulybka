@@ -21,6 +21,7 @@ public class Comments {
 
     private String name;
     private String number;
+    private String comment;
     private String date;
     private String status; //published, pending
 }

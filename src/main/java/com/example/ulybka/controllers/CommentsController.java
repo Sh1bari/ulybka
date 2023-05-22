@@ -54,4 +54,12 @@ public class CommentsController {
         commentsRepo.save(finalComment);
         return answer;
     }
+
+    @PostMapping("/delete/{id}")
+    private Answer delete(@PathVariable Integer id){
+        Answer answer = new Answer();
+        answer.setStatus("done");
+        commentsRepo.deleteComments(id);
+        return answer;
+    }
 }
