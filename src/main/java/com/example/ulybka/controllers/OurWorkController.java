@@ -21,16 +21,13 @@ public class OurWorkController {
     private OurWorkRepo ourWorkRepo;
 
     @PostMapping("/post")
-    public ResponseEntity<String> upload(@RequestParam("fileBefore") String fileBefore,
-                                         @RequestParam("fileAfter") String fileAfter,
-                                         @RequestParam("title") String title,
-                                         @RequestParam("content") String content) {
+    public ResponseEntity<String> upload(@RequestBody OurWork ourWorkReq) {
         try {
             OurWork ourWork = new OurWork();
-            ourWork.setFileBefore(fileBefore);
-            ourWork.setFileAfter(fileAfter);
-            ourWork.setTitle(title);
-            ourWork.setContent(content);
+            ourWork.setFileBefore(ourWorkReq.getFileBefore());
+            ourWork.setFileAfter(ourWorkReq.getFileAfter());
+            ourWork.setTitle(ourWorkReq.getTitle());
+            ourWork.setContent(ourWorkReq.getContent());
             ourWorkRepo.save(ourWork);
             return ResponseEntity.status(HttpStatus.OK)
                     .body("Files uploaded successfully");
