@@ -21,14 +21,14 @@ public class OurWorkController {
     private OurWorkRepo ourWorkRepo;
 
     @PostMapping("/post")
-    public ResponseEntity<String> upload(@RequestParam("fileBefore") MultipartFile fileBefore,
-                                         @RequestParam("fileAfter") MultipartFile fileAfter,
+    public ResponseEntity<String> upload(@RequestParam("fileBefore") String fileBefore,
+                                         @RequestParam("fileAfter") String fileAfter,
                                          @RequestParam("title") String title,
                                          @RequestParam("content") String content) {
         try {
             OurWork ourWork = new OurWork();
-            ourWork.setFileBefore(Base64.getEncoder().encodeToString(fileBefore.getBytes()));
-            ourWork.setFileAfter(Base64.getEncoder().encodeToString(fileAfter.getBytes()));
+            ourWork.setFileBefore(fileBefore);
+            ourWork.setFileAfter(fileAfter);
             ourWork.setTitle(title);
             ourWork.setContent(content);
             ourWorkRepo.save(ourWork);
