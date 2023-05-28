@@ -37,6 +37,16 @@ public class OurWorkController {
         }
     }
 
+    @GetMapping("/listOfIds")
+    private List<Integer> getIdList(){
+        return ourWorkRepo.findAllIds();
+    }
+
+    @GetMapping("/get/{id}")
+    private OurWork getById(@PathVariable String id){
+        return ourWorkRepo.findById(Integer.parseInt(id)).get();
+    }
+
     @GetMapping("/get")
     private List<OurWork> ourWorkList(){
         List<OurWork> result = new ArrayList<>();

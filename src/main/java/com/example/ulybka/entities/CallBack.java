@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CallBack {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
