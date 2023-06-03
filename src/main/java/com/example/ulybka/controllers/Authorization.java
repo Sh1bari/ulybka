@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class Authorization {
 
-    @PostMapping("/checkAuth")
+    @PostMapping("/api/checkAuth")
     private Answer check(@RequestBody Admin admin){
         Answer answer = new Answer("denied");
         if(admin.getLogin().equals("ElenaTac") && admin.getPassword().equals("admin123")){

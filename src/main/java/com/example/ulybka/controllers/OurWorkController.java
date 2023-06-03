@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/work")
+@RequestMapping("/api/work")
 public class OurWorkController {
     @Autowired
     private OurWorkRepo ourWorkRepo;
