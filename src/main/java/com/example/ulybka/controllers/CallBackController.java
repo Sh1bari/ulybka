@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/callback")
+@RequestMapping("/api/callback")
 @CrossOrigin
 public class CallBackController {
 

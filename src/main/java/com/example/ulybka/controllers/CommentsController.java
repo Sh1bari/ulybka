@@ -62,4 +62,12 @@ public class CommentsController {
         commentsRepo.deleteComments(id);
         return answer;
     }
+
+    @PostMapping("/delete")
+    private Answer delete(@RequestBody Comments comments){
+        Answer answer = new Answer();
+        answer.setStatus("done");
+        commentsRepo.deleteComments(comments.getId());
+        return answer;
+    }
 }
