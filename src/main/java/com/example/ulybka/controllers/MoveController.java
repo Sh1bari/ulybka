@@ -14,10 +14,10 @@ public class MoveController {
     private OurWorkRepo ourWorkRepo;
 
     @PostMapping("/api/move/down/{id}")
-    private void down(@RequestParam Integer id){
+    private void down(@RequestParam String id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
-            if(integerList.get(i).equals(id)){
+            if(integerList.get(i).equals(Integer.parseInt(id))){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
                 OurWork findDown = ourWorkRepo.findById(integerList.get(i+1)).get();
                 int var = findUp.getId();
@@ -30,10 +30,10 @@ public class MoveController {
         }
     }
     @PostMapping("/api/move/up/{id}")
-    private void up(@RequestParam Integer id){
+    private void up(@RequestParam String id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
-            if(integerList.get(i).equals(id)){
+            if(integerList.get(i).equals(Integer.parseInt(id))){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
                 OurWork findDown = ourWorkRepo.findById(integerList.get(i-1)).get();
                 int var = findUp.getId();
