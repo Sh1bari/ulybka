@@ -14,7 +14,7 @@ public class MoveController {
     private OurWorkRepo ourWorkRepo;
 
     @PostMapping("/api/move/down/{id}")
-    private void down(@RequestParam String id){
+    private void down(@PathVariable String id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
             if(integerList.get(i).equals(Integer.parseInt(id))){
@@ -30,7 +30,7 @@ public class MoveController {
         }
     }
     @PostMapping("/api/move/up/{id}")
-    private void up(@RequestParam String id){
+    private void up(@PathVariable String id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
             if(integerList.get(i).equals(Integer.parseInt(id))){
