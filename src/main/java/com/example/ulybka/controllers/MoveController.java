@@ -3,10 +3,7 @@ package com.example.ulybka.controllers;
 import com.example.ulybka.entities.OurWork;
 import com.example.ulybka.repo.OurWorkRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,11 +13,11 @@ public class MoveController {
     @Autowired
     private OurWorkRepo ourWorkRepo;
 
-    @PostMapping("/api/move/down")
-    private void down(@RequestBody OurWork ourWork){
+    @PostMapping("/api/move/down/{id}")
+    private void down(@RequestParam Integer id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
-            if(integerList.get(i) == ourWork.getId()){
+            if(integerList.get(i).equals(id)){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
                 OurWork findDown = ourWorkRepo.findById(integerList.get(i+1)).get();
                 int var = findUp.getId();
@@ -32,11 +29,11 @@ public class MoveController {
             }
         }
     }
-    @PostMapping("/api/move/up")
-    private void up(@RequestBody OurWork ourWork){
+    @PostMapping("/api/move/up/{id}")
+    private void up(@RequestParam Integer id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
         for(int i = 0; i < integerList.size(); i++){
-            if(integerList.get(i) == ourWork.getId()){
+            if(integerList.get(i).equals(id)){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
                 OurWork findDown = ourWorkRepo.findById(integerList.get(i-1)).get();
                 int var = findUp.getId();
