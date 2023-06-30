@@ -15,6 +15,6 @@ public interface OurWorkRepo extends CrudRepository<OurWork, Integer> {
     @Query(value = "delete from OurWork b where b.id=:id")
     void deleteWork(@Param("id") Integer id);
 
-    @Query(value = "select o.id from OurWork o")
+    @Query(value = "select o.id from OurWork o order by o.id asc")
     List<Integer> findAllIds();
 }
