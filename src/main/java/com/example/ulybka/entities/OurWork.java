@@ -14,7 +14,9 @@ public class OurWork {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @Lob
     private String fileBefore;
+    @Lob
     private String fileAfter;
     private String title;
     private String content;
