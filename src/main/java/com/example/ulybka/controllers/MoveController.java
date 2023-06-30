@@ -49,17 +49,21 @@ public class MoveController {
             if(integerList.get(i).equals(Integer.parseInt(id))){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
                 OurWork findDown = ourWorkRepo.findById(integerList.get(i-1)).get();
-                OurWork var = findUp;
+                String title = findUp.getTitle();
+                String content = findUp.getContent();
+                String fileBefore = findUp.getFileBefore();
+                String fileAfter = findUp.getFileAfter();
+
                 findUp.setTitle(findDown.getTitle());
                 findUp.setContent(findDown.getContent());
                 findUp.setFileBefore(findDown.getFileBefore());
                 findUp.setFileAfter(findDown.getFileAfter());
                 ourWorkRepo.save(findUp);
 
-                findDown.setTitle(var.getTitle());
-                findDown.setContent(var.getContent());
-                findDown.setFileBefore(var.getFileBefore());
-                findDown.setFileAfter(var.getFileAfter());
+                findDown.setTitle(title);
+                findDown.setContent(content);
+                findDown.setFileBefore(fileBefore);
+                findDown.setFileAfter(fileAfter);
                 ourWorkRepo.save(findDown);
                 break;
             }
