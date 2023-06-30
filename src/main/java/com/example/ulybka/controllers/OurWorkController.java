@@ -51,6 +51,9 @@ public class OurWorkController {
     private List<OurWork> ourWorkList(){
         List<OurWork> result = new ArrayList<>();
         ourWorkRepo.findAll().forEach(result::add);
+        for(OurWork i: result){
+            System.out.println(i.getId());
+        }
         return result;
     }
 
