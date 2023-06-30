@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -51,9 +52,7 @@ public class OurWorkController {
     private List<OurWork> ourWorkList(){
         List<OurWork> result = new ArrayList<>();
         ourWorkRepo.findAll().forEach(result::add);
-        for(OurWork i: result){
-            System.out.println(i.getId());
-        }
+        Collections.sort(result);
         return result;
     }
 

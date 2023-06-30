@@ -9,10 +9,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class OurWork {
+public class OurWork implements Comparable<OurWork>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     @Lob
     private String fileBefore;
@@ -20,4 +20,9 @@ public class OurWork {
     private String fileAfter;
     private String title;
     private String content;
+
+    @Override
+    public int compareTo(OurWork o){
+        return id.compareTo(o.id);
+    }
 }

@@ -16,7 +16,6 @@ public class MoveController {
     @PostMapping("/api/move/down/{id}")
     private void down(@PathVariable String id){
         List<Integer> integerList = ourWorkRepo.findAllIds();
-        System.out.println(integerList);
         for(int i = 0; i < integerList.size(); i++){
             if(integerList.get(i).equals(Integer.parseInt(id))){
                 OurWork findUp = ourWorkRepo.findById(integerList.get(i)).get();
