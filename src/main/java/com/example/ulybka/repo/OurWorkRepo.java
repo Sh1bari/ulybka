@@ -17,4 +17,6 @@ public interface OurWorkRepo extends CrudRepository<OurWork, Integer> {
 
     @Query(value = "select o.id from OurWork o order by o.id asc")
     List<Integer> findAllIds();
+
+    List<OurWork> findByIdIsNotNullOrderByIdAsc();
 }

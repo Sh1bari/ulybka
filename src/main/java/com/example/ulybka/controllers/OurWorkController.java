@@ -49,9 +49,7 @@ public class OurWorkController {
 
     @GetMapping("/get")
     private List<OurWork> ourWorkList(){
-        List<OurWork> result = new ArrayList<>();
-        ourWorkRepo.findAll().forEach(result::add);
-        return result;
+        return ourWorkRepo.findByIdIsNotNullOrderByIdAsc();
     }
 
     @PostMapping("/delete/{id}")
